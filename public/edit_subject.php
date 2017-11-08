@@ -2,7 +2,7 @@
 <?php require_once("../includes/dbconnect.php"); ?>
 <?php require_once("../includes/functions.php"); ?>
 <?php require_once("../includes/validation_function.php"); ?>
-<?php include("../includes/layouts/header.php"); ?>
+
 <?php find_selected_page(); ?>
 
 <?php
@@ -46,10 +46,14 @@ if (isset($_POST["submit"])) {
 }
 
 ?>
-	
+	<?php $layout_context = "admin"; ?>
+	<?php include("../includes/layouts/header.php"); ?>
 <div id="main">
 	<div id="navigation">
-
+		<br>
+		<a href="admin.php">&laquo; Back to menu.</a>
+		<?php echo navigation($current_subject,$current_page); ?>
+		<a href="new_subject.php">+ Add a new subject.</a>
 	</div>
 	<div id="page">
 		<?php if (!empty($message)) {
@@ -65,7 +69,7 @@ if (isset($_POST["submit"])) {
 			</p>
 			<p>Position:
 				<select name="position">
-			<?php $subject_set = find_all_subjects(); ?>
+			<?php $subject_set = find_all_subjects(false); ?>
 			<?php $subject_count = mysqli_num_rows($subject_set);?>
 			<?php for ($count=1; $count <= $subject_count; $count++) { 
 				echo "<option value=\"{$count}\"";

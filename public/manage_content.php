@@ -1,6 +1,7 @@
 <?php require_once("../includes/session.php"); ?>
 <?php require_once("../includes/dbconnect.php"); ?>
 <?php require_once("../includes/functions.php"); ?>
+<?php $layout_context = "admin"; ?>
 <?php include("../includes/layouts/header.php"); ?>
 <?php find_selected_page(); ?>
 	
@@ -22,7 +23,7 @@
 		<hr />
 		<h3>Pages in this subject:</h3>
 		<ul>
-			<?php $page_set = find_pages_for_subjects($current_subject["id"]); ?>
+			<?php $page_set = find_pages_for_subjects($current_subject["id"],false); ?>
 			<?php while ($pages = mysqli_fetch_assoc($page_set)) { ?>
 				<li><a href="manage_content.php?page=<?php echo $pages["id"];?>"><?php echo $pages["menu_name"];?></a></li>
 			<?php } ?>
