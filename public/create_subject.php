@@ -22,7 +22,7 @@ if (isset($_POST["submit"])) {
 	$query = "INSERT INTO subjects";
 	$query .= " (menu_name, position, visible)";
 	$query .= " VALUES";
-	$query .= " ('{$menu_name}', ($position), ($visible))";
+	$query .= " ('{$menu_name}', {$position}, {$visible})";
 
 	$result = mysqli_query($conn, $query);
 

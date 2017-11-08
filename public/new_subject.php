@@ -6,6 +6,7 @@
 	
 <div id="main">
 	<div id="navigation">
+		<br><a href="admin.php">&laquo; Bact to menu</a>
 		<?php echo navigation($current_subject,$current_page); ?>
 		<br>
 
